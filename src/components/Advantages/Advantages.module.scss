@@ -1,0 +1,110 @@
+@use "../../assets/fonts/fonts.scss" as *;
+
+@mixin card {
+  cursor: pointer;
+  border-radius: 32px;
+  display: flex;
+  align-items: center;
+}
+
+@mixin textcard {
+  background: radial-gradient(
+    circle,
+    #272727,
+    #1f1f1f,
+    #171717,
+    #0e0e0e,
+    #000000
+  );
+  &:hover {
+    background: radial-gradient(
+      circle,
+      #1c85d6,
+      #3b65a0,
+      #3a476e,
+      #2c2d3f,
+      #171717
+    );
+  }
+  transition: all 3s ease-in;
+}
+
+@mixin image-card($url) {
+  background-image: url($url);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0;
+  transition: background-position 5s ease-in-out;
+  &:hover {
+    background-position: -50px;
+  }
+}
+
+.advantages {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  gap: 20px;
+}
+
+.heading {
+  @include constructor(var(--font-black), 54px);
+}
+
+.text {
+  padding: 0;
+  margin: 0;
+  @include constructor(var(--font-regular), 20px, white);
+}
+
+.textcard_1 {
+  padding: 20px;
+  box-sizing: border-box;
+  width: 400px;
+  height: 200px;
+  @include card();
+  @include textcard();
+}
+
+.textcard_2 {
+  padding: 20px;
+  box-sizing: border-box;
+  width: 400px;
+  height: 100px;
+  @include card();
+  @include textcard();
+}
+
+.ship_1 {
+  width: 400px;
+  height: 550px;
+  @include card();
+  @include image-card("../../assets/images/ship-1.jpg");
+}
+
+.ship_2 {
+  width: 400px;
+  height: 400px;
+  @include card();
+  @include image-card("../../assets/images/ship-2.jpg");
+}
+
+.ship_3 {
+  width: 400px;
+  height: 250px;
+  @include card();
+  @include image-card("../../assets/images/ship-3.jpg");
+  background-size: 125%;
+}
+
+.button {
+  @include constructor(var(--font-black), 20px, white);
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  width: 400px;
+  height: 50px;
+  @include card();
+  @include textcard();
+  border: 0;
+}

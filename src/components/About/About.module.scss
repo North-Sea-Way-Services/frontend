@@ -1,0 +1,22 @@
+@use "../../assets/fonts/fonts.scss" as *;
+
+.about {
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+}
+
+.logo {
+  background-image: url("../../assets/images/rosatom-black.png");
+  background-size: 75%;
+  background-position: center;
+  background-repeat: no-repeat;
+  flex: 1;
+}
+
+.description {
+  flex: 1;
+  align-self: center;
+  margin: 0;
+  @include constructor(var(--font-regular), 36px);
+}
