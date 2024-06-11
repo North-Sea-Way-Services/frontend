@@ -3,7 +3,15 @@
   margin: 0 auto;
 }
 
-.separator {
-  height: 100px;
-  width: 100%;
+html {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+section {
+  scroll-snap-align: start;
+}
+
+footer {
+  scroll-snap-align: start;
 }

@@ -2,9 +2,12 @@
 
 @mixin card {
   cursor: pointer;
+  width: 100%;
   border-radius: 32px;
   display: flex;
   align-items: center;
+  overflow: hidden;
+  transition: width 0.3s ease-in;
 }
 
 @mixin textcard {
@@ -26,29 +29,28 @@
       #171717
     );
   }
-  transition: all 3s ease-in;
-}
-
-@mixin image-card($url) {
-  background-image: url($url);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 0;
-  transition: background-position 5s ease-in-out;
-  &:hover {
-    background-position: -50px;
-  }
+  transition: all 0.3s linear;
 }
 
 .advantages {
-  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  width: 100%;
+  margin: auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  grid-template-rows: 1fr;
+  grid-auto-flow: dense;
+  justify-items: stretch;
   gap: 20px;
 }
 
-.heading {
-  @include constructor(var(--font-black), 54px);
+.advantages .big {
+  grid-row: span 2;
 }
 
 .text {
@@ -57,44 +59,48 @@
   @include constructor(var(--font-regular), 20px, white);
 }
 
-.textcard_1 {
-  padding: 20px;
+.card {
+  position: relative;
+  @include card();
+}
+
+.layout {
   box-sizing: border-box;
-  width: 400px;
-  height: 200px;
-  @include card();
-  @include textcard();
-}
-
-.textcard_2 {
   padding: 20px;
-  box-sizing: border-box;
-  width: 400px;
-  height: 100px;
-  @include card();
-  @include textcard();
+  display: flex;
+  align-items: center;
+  position: absolute;
+  z-index: 2;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  transition: opacity 0.3s ease-in;
 }
 
-.ship_1 {
-  width: 400px;
-  height: 550px;
-  @include card();
-  @include image-card("../../assets/images/ship-1.jpg");
+.big {
+  height: 500px;
 }
 
-.ship_2 {
-  width: 400px;
-  height: 400px;
-  @include card();
-  @include image-card("../../assets/images/ship-2.jpg");
+.small {
+  height: calc(500px / 2 - 10px);
 }
 
-.ship_3 {
-  width: 400px;
-  height: 250px;
-  @include card();
-  @include image-card("../../assets/images/ship-3.jpg");
-  background-size: 125%;
+.image_container {
+  overflow: hidden;
+}
+
+.image {
+  object-fit: cover;
+  scale: 1;
+  transition: scale 2s ease-in;
+}
+
+.card:hover .image {
+  scale: 1.1;
+}
+.card:hover .layout {
+  opacity: 1;
 }
 
 .button {

@@ -3,6 +3,7 @@ import styles from "./Main.module.scss";
 import Title from "../Title/Title.tsx";
 import About from "../About/About.tsx";
 import Advantages from "../Advantages/Advantages.tsx";
+import Map from "../Map/Map.tsx";
 
 function Main() {
   return (
@@ -10,6 +11,7 @@ function Main() {
       <Title />
       <About />
       <Advantages />
+      <Map />
     </main>
   );
 }
