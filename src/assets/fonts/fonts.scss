@@ -1,0 +1,25 @@
+@font-face {
+  font-family: "Montserrat-Black";
+  src: url("./Montserrat/Montserrat-VariableFont_wght.ttf");
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: "Montserrat-Regular";
+  src: url("./Montserrat/Montserrat-VariableFont_wght.ttf");
+  font-weight: 600;
+}
+
+@mixin constructor(
+  $font,
+  $size,
+  $color: black,
+  $lineheight: 1,
+  $letterspacing: normal
+) {
+  font-family: $font;
+  font-size: $size;
+  line-height: $lineheight;
+  color: $color;
+  letter-spacing: $letterspacing;
+}

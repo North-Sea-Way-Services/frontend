@@ -1,0 +1,42 @@
+@use "../../assets/fonts/fonts.scss" as *;
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 1440px;
+  min-height: 100px;
+  background: radial-gradient(
+    circle,
+    #272727,
+    #1f1f1f,
+    #171717,
+    #0e0e0e,
+    #000000
+  );
+}
+
+.copyright {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+
+.contacts {
+  @include constructor(var(--font-regular), 14px, white);
+}
+
+.logo {
+  background-image: url("../../assets/images/rosatom.png");
+  background-repeat: no-repeat;
+  background-size: 75%;
+  background-position: center left;
+  flex: 1;
+  cursor: pointer;
+}
+
+.heading {
+  @include constructor(var(--font-regular), 28px, white);
+  margin: 0;
+  padding: 0;
+}

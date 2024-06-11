@@ -1,0 +1,38 @@
+@use "../../assets/fonts/fonts.scss" as *;
+
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.heading {
+  padding: 0;
+  margin: 0;
+  background-color: darkgray;
+  @include constructor(
+    var(--font-black),
+    var(--title-size),
+    var(--title-color),
+    0.75
+  );
+  word-spacing: 100vw;
+  text-transform: uppercase;
+  background-image: url("../../assets/images/Ledokol_Russia.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  animation: background-scaler 20s ease-in-out infinite;
+}
+
+@keyframes background-scaler {
+  0% {
+    background-size: 100%;
+  }
+  50% {
+    background-size: 125%;
+  }
+  100% {
+    background-size: 100%;
+  }
+}
